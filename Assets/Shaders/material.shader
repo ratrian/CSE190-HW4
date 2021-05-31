@@ -3,7 +3,8 @@
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _MainTexLeft ("Left Texture", 2D) = "white" {}
+        _MainTexRight ("Right Texture", 2D) = "white" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
     }
@@ -19,11 +20,13 @@
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
 
-        sampler2D _MainTex;
+        sampler2D _MainTexLeft;
+        sampler2D _MainTexRight;
 
         struct Input
         {
-            float2 uv_MainTex;
+            float2 uv_MainTexLeft;
+            float2 uv_MainTexRight;
         };
 
         half _Glossiness;
@@ -59,7 +62,13 @@
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
+            fixed4 c;
+            if (unity_StereoEyeIndex == 0) { // Left
+                c = tex2D(_MainTexLeft, IN.uv_MainTexLeft) * _Color;
+            }
+            else { // Right
+                c = tex2D(_MainTexRight, IN.uv_MainTexRight) * _Color;
+            }
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
