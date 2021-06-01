@@ -42,25 +42,30 @@ public class OffscreenRendering : MonoBehaviour {
 	IEnumerator CaptureAndSaveFrames() {
 	while (true) {
 		yield return new WaitForEndOfFrame();
+
 		// Remember currently active render texture.
 		RenderTexture currentRT = RenderTexture.active;
+
 		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
-		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		// Set target texture for left camera as active render texture.
 		RenderTexture.active = OffscreenCameraLeft.targetTexture;
 		// Render to texture
 		OffscreenCameraLeft.Render();
+		// Read offscreen texture
+		Texture2D offscreenTextureLeft = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false); 			
+		offscreenTextureLeft.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false); 			
+		offscreenTextureLeft.Apply();
+
+		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
 		RenderTexture.active = OffscreenCameraRight.targetTexture;
 		// Render to texture
 		OffscreenCameraRight.Render();
 		// Read offscreen texture
-		Texture2D offscreenTextureLeft = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false); 			
-		offscreenTextureLeft.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false); 			
-		offscreenTextureLeft.Apply();
 		Texture2D offscreenTextureRight = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTextureRight.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTextureRight.Apply();
+
 		// Reset previous render texture.
 		RenderTexture.active = currentRT;
 		++FrameCounter;
@@ -68,11 +73,13 @@ public class OffscreenRendering : MonoBehaviour {
 		// Encode texture into PNG
 		byte[] bytesLeft = offscreenTextureLeft.EncodeToPNG();
 		File.WriteAllBytes(Application.dataPath + "/../capturedframe"+FrameCounter.ToString()+".png", bytesLeft);
+		// Delete texture.
+		UnityEngine.Object.Destroy(offscreenTextureLeft);
+
+		// Encode texture into PNG
 		byte[] bytesRight = offscreenTextureRight.EncodeToPNG();
 		File.WriteAllBytes(Application.dataPath + "/../capturedframe" + FrameCounter.ToString() + ".png", bytesRight);
-
-		// Delete textures.
-		UnityEngine.Object.Destroy(offscreenTextureLeft);
+		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTextureRight);
 
 		yield return new WaitForSeconds(1.0f / ScreenshotsPerSecond);
