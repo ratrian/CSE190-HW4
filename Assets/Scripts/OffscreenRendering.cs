@@ -44,6 +44,8 @@ public class OffscreenRendering : MonoBehaviour {
 		yield return new WaitForEndOfFrame();
 		// Remember currently active render texture.
 		RenderTexture currentRT = RenderTexture.active;
+		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
+		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		// Set target texture for left camera as active render texture.
 		RenderTexture.active = OffscreenCameraLeft.targetTexture;
 		// Render to texture
