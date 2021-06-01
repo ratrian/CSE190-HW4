@@ -155,6 +155,15 @@ MonoBehaviour:
   ScreenshotsPerSecond: 1
   OffscreenCameraLeft: {fileID: 1412807040}
   OffscreenCameraRight: {fileID: 193766536}
+  LeftPlane: {fileID: 931296714}
+  RightPlane: {fileID: 1964773831}
+  BottomPlane: {fileID: 758836982}
+  LeftPlaneLeftTexture: {fileID: 8400000, guid: 49577bcc52a9a4240883c9d4a285a389, type: 2}
+  RightPlaneLeftTexture: {fileID: 8400000, guid: b67a785257de4704881648cc368556b4, type: 2}
+  BottomPlaneLeftTexture: {fileID: 8400000, guid: 865e1c6879c052a47bdb328b29ee26e6, type: 2}
+  LeftPlaneRightTexture: {fileID: 8400000, guid: 1bc7bc4f1dc0ec145bd864f6728c7990, type: 2}
+  RightPlaneRightTexture: {fileID: 8400000, guid: 8eb3ba64bc26a184f85c85b370a0ee4a, type: 2}
+  BottomPlaneRightTexture: {fileID: 8400000, guid: 2c8f08cd0ba15754c9f4819b7bd51f28, type: 2}
 --- !u!4 &163676020
 Transform:
   m_ObjectHideFlags: 0

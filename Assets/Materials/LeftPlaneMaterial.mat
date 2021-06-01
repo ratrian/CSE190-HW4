@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: LeftWallMaterial
+  m_Name: LeftPlaneMaterial
   m_Shader: {fileID: 4800000, guid: b14d4ddf6ea50824d938230f0fc88556, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
