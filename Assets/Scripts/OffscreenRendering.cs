@@ -48,6 +48,42 @@ public class OffscreenRendering : MonoBehaviour {
 
 		/* Left Plane */
 
+		Vector3 pa;// = ;
+		Vector3 pb;// = ;
+		Vector3 pc;// = ;
+		Vector3 pe;// = ;
+		/*Vector3 va = pa - pe;
+		Vector3 vb = pb - pe;
+		Vector3 vc = pc - pe;
+		Vector3 vr = (pb - pa).normalized;
+		Vector3 vu = (pc - pa).normalized;
+		Vector3 vn = Vector3.Cross(vr, vu).normalized;
+		float d = -Vector3.Dot(vn, va);
+		float n;// = ;
+		float left = Vector3.Dot(vr, va) * n / d;
+		float right = Vector3.Dot(vr, vb) * n / d;
+		float bottom = Vector3.Dot(vu, va) * n / d;
+		float top = Vector3.Dot(vu, vc) * n / d;
+		Matrix4x4 p;// = Matrix4x4.Frustum(left, right, bottom, top, , );
+		Matrix4x4 mT;
+		mT.SetRow(0, new Vector4(-vr.x, -vr.y, -vr.z, 0.0f));
+		mT.SetRow(1, new Vector4(-vu.x, -vu.y, -vu.z, 0.0f));
+		mT.SetRow(2, new Vector4(-vn.x, -vn.y, -vn.z, 0.0f));
+		mT.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
+		Matrix4x4 t;
+		//t.SetRow(0, new Vector4(1.0f, 0.0f, 0.0f, ));
+		//t.SetRow(1, new Vector4(0.0f, 1.0f, 0.0f, ));
+		//t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, ));
+		//t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
+		OffscreenCameraLeft.projectionMatrix = p * mT * t;
+		GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
+		GameObject.Find("lparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);*/
+
+		/*
+		OffscreenCameraRight.projectionMatrix = p * mT * t;
+		GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
+		GameObject.Find("rparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);*/
+
 		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
 		RenderTexture.active = OffscreenCameraLeft.targetTexture;
