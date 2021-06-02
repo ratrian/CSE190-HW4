@@ -57,9 +57,6 @@ public class OffscreenRendering : MonoBehaviour {
 		Texture2D offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false); 			
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false); 			
 		offscreenTexture.Apply();
-		// Encode texture into PNG
-		/*byte[] bytesLeft = offscreenTexture.EncodeToPNG();
-		File.WriteAllBytes(Application.dataPath + "/../capturedframeleftplaneleft"+FrameCounter.ToString()+".png", bytesLeft);*/
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
@@ -72,9 +69,6 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
-		// Encode texture into PNG
-		/*byte[] bytesRight = offscreenTexture.EncodeToPNG();
-		File.WriteAllBytes(Application.dataPath + "/../capturedframeleftplaneright" + FrameCounter.ToString() + ".png", bytesRight);*/
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
@@ -89,9 +83,6 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
-		// Encode texture into PNG
-		/*bytesLeft = offscreenTexture.EncodeToPNG();
-		File.WriteAllBytes(Application.dataPath + "/../capturedframerightplaneleft"+FrameCounter.ToString()+".png", bytesLeft);*/
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
@@ -104,9 +95,6 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
-		// Encode texture into PNG
-		/*bytesRight = offscreenTexture.EncodeToPNG();
-		File.WriteAllBytes(Application.dataPath + "/../capturedframerightplaneright" + FrameCounter.ToString() + ".png", bytesRight);*/
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
@@ -121,9 +109,6 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
-		// Encode texture into PNG
-		/*bytesLeft = offscreenTexture.EncodeToPNG();
-		File.WriteAllBytes(Application.dataPath + "/../capturedframebottomplaneleft"+FrameCounter.ToString()+".png", bytesLeft);*/
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
@@ -136,9 +121,6 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
-		// Encode texture into PNG
-		/*bytesRight = offscreenTexture.EncodeToPNG();
-		File.WriteAllBytes(Application.dataPath + "/../capturedframebottomplaneright" + FrameCounter.ToString() + ".png", bytesRight);*/
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
