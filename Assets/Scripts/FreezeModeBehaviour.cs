@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class FreezeModeBehaviour : MonoBehaviour
 {
-    public static bool freezed;
+    public static bool freeze, fail;
+    public static int randomChoice; 
 
     // Start is called before the first frame update
     void Start()
     {
-        freezed = false;
+        freeze = false;
+        fail = false;
     }
 
     // Update is called once per frame
@@ -17,7 +19,16 @@ public class FreezeModeBehaviour : MonoBehaviour
     {
         if (OVRInput.GetDown(OVRInput.Button.Two))
         {
-            freezed = !freezed;
+            freeze = !freeze;
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.Three))
+        {
+            fail = !fail;
+        }
+        if (fail)
+        {
+            randomChoice = Random.Range(0, 6);
         }
     }
 }

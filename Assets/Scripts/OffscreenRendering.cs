@@ -74,7 +74,7 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(1, new Vector4(0.0f, 1.0f, 0.0f, -pe.y));
 		t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, -pe.z));
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
-		if (!FreezeModeBehaviour.freezed)
+		if (!FreezeModeBehaviour.freeze)
 		{
 			pPrimeLeftPlaneLeft = p * mT * t;
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
@@ -84,8 +84,15 @@ public class OffscreenRendering : MonoBehaviour {
 		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
 		RenderTexture.active = OffscreenCameraLeft.targetTexture;
-		// Render to texture
-		OffscreenCameraLeft.Render();
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 0))
+		{
+			OffscreenCameraLeft.targetTexture.Release();
+		}
+		else
+		{
+			// Render to texture
+			OffscreenCameraLeft.Render();
+		}
 		// Read offscreen texture
 		Texture2D offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false); 			
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false); 			
@@ -119,7 +126,7 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(1, new Vector4(0.0f, 1.0f, 0.0f, -pe.y));
 		t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, -pe.z));
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
-		if (!FreezeModeBehaviour.freezed)
+		if (!FreezeModeBehaviour.freeze)
 		{
 			pPrimeLeftPlaneRight = p * mT * t;
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
@@ -129,8 +136,15 @@ public class OffscreenRendering : MonoBehaviour {
 		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
 		RenderTexture.active = OffscreenCameraRight.targetTexture;
-		// Render to texture
-		OffscreenCameraRight.Render();
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 1))
+		{
+			OffscreenCameraRight.targetTexture.Release();
+		}
+		else
+		{
+			// Render to texture
+			OffscreenCameraRight.Render();
+		}
 		// Read offscreen texture
 		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
@@ -166,7 +180,7 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(1, new Vector4(0.0f, 1.0f, 0.0f, -pe.y));
 		t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, -pe.z));
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
-		if (!FreezeModeBehaviour.freezed)
+		if (!FreezeModeBehaviour.freeze)
 		{
 			pPrimeRightPlaneLeft = p * mT * t;
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
@@ -176,8 +190,15 @@ public class OffscreenRendering : MonoBehaviour {
 		OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
 		RenderTexture.active = OffscreenCameraLeft.targetTexture;
-		// Render to texture
-		OffscreenCameraLeft.Render();
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 2))
+		{
+			OffscreenCameraLeft.targetTexture.Release();
+		}
+		else
+		{
+			// Render to texture
+			OffscreenCameraLeft.Render();
+		}
 		// Read offscreen texture
 		offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false);
@@ -211,7 +232,7 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(1, new Vector4(0.0f, 1.0f, 0.0f, -pe.y));
 		t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, -pe.z));
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
-		if (!FreezeModeBehaviour.freezed)
+		if (!FreezeModeBehaviour.freeze)
 		{
 			pPrimeRightPlaneRight = p * mT * t;
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
@@ -221,8 +242,15 @@ public class OffscreenRendering : MonoBehaviour {
 		OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
 		RenderTexture.active = OffscreenCameraRight.targetTexture;
-		// Render to texture
-		OffscreenCameraRight.Render();
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 3))
+		{
+			OffscreenCameraRight.targetTexture.Release();
+		}
+		else
+		{
+			// Render to texture
+			OffscreenCameraRight.Render();
+		}
 		// Read offscreen texture
 		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
@@ -258,7 +286,7 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(1, new Vector4(0.0f, 1.0f, 0.0f, -pe.y));
 		t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, -pe.z));
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
-		if (!FreezeModeBehaviour.freezed)
+		if (!FreezeModeBehaviour.freeze)
 		{
 			pPrimeBottomPlaneLeft = p * mT * t;
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
@@ -268,8 +296,15 @@ public class OffscreenRendering : MonoBehaviour {
 		OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
 		RenderTexture.active = OffscreenCameraLeft.targetTexture;
-		// Render to texture
-		OffscreenCameraLeft.Render();
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 4))
+		{
+			OffscreenCameraLeft.targetTexture.Release();
+		}
+		else
+		{
+			// Render to texture
+			OffscreenCameraLeft.Render();
+		}
 		// Read offscreen texture
 		offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false);
@@ -303,7 +338,7 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(1, new Vector4(0.0f, 1.0f, 0.0f, -pe.y));
 		t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, -pe.z));
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
-		if (!FreezeModeBehaviour.freezed)
+		if (!FreezeModeBehaviour.freeze)
 		{
 			pPrimeBottomPlaneRight = p * mT * t;
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
@@ -313,8 +348,15 @@ public class OffscreenRendering : MonoBehaviour {
 		OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
 		RenderTexture.active = OffscreenCameraRight.targetTexture;
-		// Render to texture
-		OffscreenCameraRight.Render();
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 5))
+		{
+			OffscreenCameraRight.targetTexture.Release();
+		}
+		else
+		{
+			// Render to texture
+			OffscreenCameraRight.Render();
+		}
 		// Read offscreen texture
 		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
