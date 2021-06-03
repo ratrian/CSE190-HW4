@@ -81,15 +81,15 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeLeftPlaneLeft;
 	
-		// Set target texture for left camera as active render texture.
-		RenderTexture.active = LeftPlaneLeftTexture;
-		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 0))
 		{
 			LeftPlaneLeftTexture.Release();
 		}
 		else
 		{
+			// Set target texture for left camera as active render texture.
+			RenderTexture.active = LeftPlaneLeftTexture;
+			OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
 			// Render to texture
 			OffscreenCameraLeft.Render();
 		}
@@ -133,15 +133,15 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeLeftPlaneRight;
 
-		// Set target texture for right camera as active render texture.
-		RenderTexture.active = LeftPlaneRightTexture;
-		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 1))
 		{
 			LeftPlaneRightTexture.Release();
 		}
 		else
 		{
+			// Set target texture for right camera as active render texture.
+			RenderTexture.active = LeftPlaneRightTexture;
+			OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 			// Render to texture
 			OffscreenCameraRight.Render();
 		}
@@ -187,15 +187,15 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeRightPlaneLeft;
 
-		// Set target texture for left camera as active render texture.
-		RenderTexture.active = RightPlaneLeftTexture;
-		OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 2))
 		{
 			RightPlaneLeftTexture.Release();
 		}
 		else
 		{
+			// Set target texture for left camera as active render texture.
+			RenderTexture.active = RightPlaneLeftTexture;
+			OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
 			// Render to texture
 			OffscreenCameraLeft.Render();
 		}
@@ -239,15 +239,15 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeRightPlaneRight;
 
-		// Set target texture for right camera as active render texture.
-		RenderTexture.active = RightPlaneRightTexture;
-		OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 3))
 		{
 			RightPlaneRightTexture.Release();
 		}
 		else
 		{
+			// Set target texture for right camera as active render texture.
+			RenderTexture.active = RightPlaneRightTexture;
+			OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
 			// Render to texture
 			OffscreenCameraRight.Render();
 		}
@@ -293,15 +293,15 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
 
-		// Set target texture for left camera as active render texture.
-		RenderTexture.active = BottomPlaneLeftTexture;
-		OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 4))
 		{
 			BottomPlaneLeftTexture.Release();
 		}
 		else
 		{
+			// Set target texture for left camera as active render texture.
+			RenderTexture.active = BottomPlaneLeftTexture;
+			OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
 			// Render to texture
 			OffscreenCameraLeft.Render();
 		}
@@ -345,15 +345,15 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeBottomPlaneRight;
 
-		// Set target texture for right camera as active render texture.
-		RenderTexture.active = BottomPlaneRightTexture;
-		OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 5))
 		{
 			BottomPlaneRightTexture.Release();
 		}
 		else
 		{
+			// Set target texture for right camera as active render texture.
+			RenderTexture.active = BottomPlaneRightTexture;
+			OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
 			// Render to texture
 			OffscreenCameraRight.Render();
 		}
