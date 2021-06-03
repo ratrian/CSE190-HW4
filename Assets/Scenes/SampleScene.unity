@@ -155,9 +155,6 @@ MonoBehaviour:
   ScreenshotsPerSecond: 1
   OffscreenCameraLeft: {fileID: 1412807040}
   OffscreenCameraRight: {fileID: 193766536}
-  LeftPlane: {fileID: 931296714}
-  RightPlane: {fileID: 1964773831}
-  BottomPlane: {fileID: 758836982}
   LeftPlaneLeftTexture: {fileID: 8400000, guid: 49577bcc52a9a4240883c9d4a285a389, type: 2}
   RightPlaneLeftTexture: {fileID: 8400000, guid: b67a785257de4704881648cc368556b4, type: 2}
   BottomPlaneLeftTexture: {fileID: 8400000, guid: 865e1c6879c052a47bdb328b29ee26e6, type: 2}

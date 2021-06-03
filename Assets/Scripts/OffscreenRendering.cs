@@ -21,7 +21,6 @@ public class OffscreenRendering : MonoBehaviour {
 	/// </summary>
 	[Tooltip("The camera that is used for off-screen rendering.")]
 	public Camera OffscreenCameraLeft, OffscreenCameraRight;
-	public GameObject LeftPlane, RightPlane, BottomPlane;
 	public RenderTexture LeftPlaneLeftTexture, RightPlaneLeftTexture, BottomPlaneLeftTexture, LeftPlaneRightTexture,  RightPlaneRightTexture,  BottomPlaneRightTexture;
 	#endregion
 	/// <summary>
