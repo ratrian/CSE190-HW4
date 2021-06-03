@@ -74,8 +74,7 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(2, new Vector4(0.0f, 0.0f, 1.0f, -pe.z));
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		OffscreenCameraLeft.projectionMatrix = p * mT * t;
-		/*GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-		GameObject.Find("lparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);*/
+		GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
 
 		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
@@ -89,7 +88,7 @@ public class OffscreenRendering : MonoBehaviour {
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
-		/*pa = new Vector3(-3.75f, -5.0f, -3.75f);
+		pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		pb = new Vector3(-3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, -3.75f);
 		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
@@ -117,7 +116,6 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		OffscreenCameraRight.projectionMatrix = p * mT * t;
 		GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
-		GameObject.Find("rparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);
 
 		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
@@ -129,11 +127,11 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
-		UnityEngine.Object.Destroy(offscreenTexture);*/
+		UnityEngine.Object.Destroy(offscreenTexture);
 
 		/* Right Plane */
 
-		/*pa = new Vector3(-3.75f, -5.0f, 3.75f);
+		pa = new Vector3(-3.75f, -5.0f, 3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, 3.75f);
 		pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
@@ -161,7 +159,6 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		OffscreenCameraLeft.projectionMatrix = p * mT * t;
 		GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-		GameObject.Find("lparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);
 
 		OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
@@ -203,7 +200,6 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		OffscreenCameraRight.projectionMatrix = p * mT * t;
 		GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
-		GameObject.Find("rparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);
 
 		OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
@@ -215,13 +211,13 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
-		UnityEngine.Object.Destroy(offscreenTexture);*/
+		UnityEngine.Object.Destroy(offscreenTexture);
 
 		/* Bottom Plane */
 
-		/*pa = new Vector3(-3.75f, -5.0f, -3.75f);
-		pb = new Vector3(3.75f, -5.0f, -3.75f);
-		pc = new Vector3(-3.75f, -5.0f, 3.75f);
+		pa = new Vector3(3.75f, -5.0f, -3.75f);
+		pb = new Vector3(3.75f, -5.0f, 3.75f);
+		pc = new Vector3(-3.75f, -5.0f, -3.75f);
 		pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
@@ -247,7 +243,6 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		OffscreenCameraLeft.projectionMatrix = p * mT * t;
 		GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-		GameObject.Find("lparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);
 
 		OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
@@ -261,9 +256,9 @@ public class OffscreenRendering : MonoBehaviour {
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
 
-		pa = new Vector3(-3.75f, -5.0f, -3.75f);
-		pb = new Vector3(-3.75f, -5.0f, 3.75f);
-		pc = new Vector3(-3.75f, 2.5f, -3.75f);
+		pa = new Vector3(3.75f, -5.0f, -3.75f);
+		pb = new Vector3(3.75f, -5.0f, 3.75f);
+		pc = new Vector3(-3.75f, -5.0f, -3.75f);
 		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
@@ -289,7 +284,6 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		OffscreenCameraRight.projectionMatrix = p * mT * t;
 		GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
-		GameObject.Find("rparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);
 
 		OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
@@ -301,7 +295,7 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
-		UnityEngine.Object.Destroy(offscreenTexture);*/
+		UnityEngine.Object.Destroy(offscreenTexture);
 
 		// Reset previous render texture.
 		RenderTexture.active = currentRT;
