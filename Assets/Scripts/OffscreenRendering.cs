@@ -80,13 +80,13 @@ public class OffscreenRendering : MonoBehaviour {
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeLeftPlaneLeft;
-
-		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
+	
 		// Set target texture for left camera as active render texture.
-		RenderTexture.active = OffscreenCameraLeft.targetTexture;
+		RenderTexture.active = LeftPlaneLeftTexture;
+		OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 0))
 		{
-			OffscreenCameraLeft.targetTexture.Release();
+			LeftPlaneLeftTexture.Release();
 		}
 		else
 		{
@@ -94,8 +94,8 @@ public class OffscreenRendering : MonoBehaviour {
 			OffscreenCameraLeft.Render();
 		}
 		// Read offscreen texture
-		Texture2D offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false); 			
-		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false); 			
+		Texture2D offscreenTexture = new Texture2D(LeftPlaneLeftTexture.width, LeftPlaneLeftTexture.height, TextureFormat.RGB24, false); 			
+		offscreenTexture.ReadPixels(new Rect(0, 0, LeftPlaneLeftTexture.width, LeftPlaneLeftTexture.height), 0, 0, false); 			
 		offscreenTexture.Apply();
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
@@ -133,12 +133,12 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeLeftPlaneRight;
 
-		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
-		RenderTexture.active = OffscreenCameraRight.targetTexture;
+		RenderTexture.active = LeftPlaneRightTexture;
+		OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 1))
 		{
-			OffscreenCameraRight.targetTexture.Release();
+			LeftPlaneRightTexture.Release();
 		}
 		else
 		{
@@ -146,8 +146,8 @@ public class OffscreenRendering : MonoBehaviour {
 			OffscreenCameraRight.Render();
 		}
 		// Read offscreen texture
-		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
-		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
+		offscreenTexture = new Texture2D(LeftPlaneRightTexture.width, LeftPlaneRightTexture.height, TextureFormat.RGB24, false);
+		offscreenTexture.ReadPixels(new Rect(0, 0, LeftPlaneRightTexture.width, LeftPlaneRightTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
@@ -187,12 +187,12 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeRightPlaneLeft;
 
-		OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
-		RenderTexture.active = OffscreenCameraLeft.targetTexture;
+		RenderTexture.active = RightPlaneLeftTexture;
+		OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 2))
 		{
-			OffscreenCameraLeft.targetTexture.Release();
+			RightPlaneLeftTexture.Release();
 		}
 		else
 		{
@@ -200,8 +200,8 @@ public class OffscreenRendering : MonoBehaviour {
 			OffscreenCameraLeft.Render();
 		}
 		// Read offscreen texture
-		offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
-		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false);
+		offscreenTexture = new Texture2D(RightPlaneLeftTexture.width, RightPlaneLeftTexture.height, TextureFormat.RGB24, false);
+		offscreenTexture.ReadPixels(new Rect(0, 0, RightPlaneLeftTexture.width, RightPlaneLeftTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
@@ -239,12 +239,12 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeRightPlaneRight;
 
-		OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
-		RenderTexture.active = OffscreenCameraRight.targetTexture;
+		RenderTexture.active = RightPlaneRightTexture;
+		OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 3))
 		{
-			OffscreenCameraRight.targetTexture.Release();
+			RightPlaneRightTexture.Release();
 		}
 		else
 		{
@@ -252,8 +252,8 @@ public class OffscreenRendering : MonoBehaviour {
 			OffscreenCameraRight.Render();
 		}
 		// Read offscreen texture
-		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
-		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
+		offscreenTexture = new Texture2D(RightPlaneRightTexture.width, RightPlaneRightTexture.height, TextureFormat.RGB24, false);
+		offscreenTexture.ReadPixels(new Rect(0, 0, RightPlaneRightTexture.width, RightPlaneRightTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
@@ -293,12 +293,12 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
 
-		OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
 		// Set target texture for left camera as active render texture.
-		RenderTexture.active = OffscreenCameraLeft.targetTexture;
+		RenderTexture.active = BottomPlaneLeftTexture;
+		OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 4))
 		{
-			OffscreenCameraLeft.targetTexture.Release();
+			BottomPlaneLeftTexture.Release();
 		}
 		else
 		{
@@ -306,8 +306,8 @@ public class OffscreenRendering : MonoBehaviour {
 			OffscreenCameraLeft.Render();
 		}
 		// Read offscreen texture
-		offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
-		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false);
+		offscreenTexture = new Texture2D(BottomPlaneLeftTexture.width, BottomPlaneLeftTexture.height, TextureFormat.RGB24, false);
+		offscreenTexture.ReadPixels(new Rect(0, 0, BottomPlaneLeftTexture.width, BottomPlaneLeftTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
@@ -345,12 +345,12 @@ public class OffscreenRendering : MonoBehaviour {
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeBottomPlaneRight;
 
-		OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
 		// Set target texture for right camera as active render texture.
-		RenderTexture.active = OffscreenCameraRight.targetTexture;
+		RenderTexture.active = BottomPlaneRightTexture;
+		OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 5))
 		{
-			OffscreenCameraRight.targetTexture.Release();
+			BottomPlaneRightTexture.Release();
 		}
 		else
 		{
@@ -358,8 +358,8 @@ public class OffscreenRendering : MonoBehaviour {
 			OffscreenCameraRight.Render();
 		}
 		// Read offscreen texture
-		offscreenTexture = new Texture2D(OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height, TextureFormat.RGB24, false);
-		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
+		offscreenTexture = new Texture2D(BottomPlaneRightTexture.width, BottomPlaneRightTexture.height, TextureFormat.RGB24, false);
+		offscreenTexture.ReadPixels(new Rect(0, 0, BottomPlaneRightTexture.width, BottomPlaneRightTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
 		UnityEngine.Object.Destroy(offscreenTexture);
