@@ -51,7 +51,7 @@ public class OffscreenRendering : MonoBehaviour {
 		Vector3 pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		Vector3 pb = new Vector3(-3.75f, -5.0f, 3.75f);
 		Vector3 pc = new Vector3(-3.75f, 2.5f, -3.75f);
-		Vector3 pe = GameObject.Find("LeftEyeAnchor").transform.localPosition;
+		Vector3 pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
 		Vector3 va = pa - pe;
 		Vector3 vb = pb - pe;
 		Vector3 vc = pc - pe;
@@ -92,7 +92,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		pb = new Vector3(-3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, -3.75f);
-		pe = GameObject.Find("RightEyeAnchor").transform.localPosition;
+		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
 		vc = pc - pe;
@@ -132,10 +132,10 @@ public class OffscreenRendering : MonoBehaviour {
 
 		/* Right Plane */
 
-		/*pa = new Vector3(-3.75f, -5.0f, 3.75f);
+		pa = new Vector3(-3.75f, -5.0f, 3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, 3.75f);
-		pe = GameObject.Find("LeftEyeAnchor").transform.localPosition;
+		pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
 		vc = pc - pe;
@@ -176,7 +176,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(-3.75f, -5.0f, 3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, 3.75f);
-		pe = GameObject.Find("RightEyeAnchor").transform.localPosition;
+		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
 		vc = pc - pe;
@@ -212,14 +212,14 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
-		UnityEngine.Object.Destroy(offscreenTexture);*/
+		UnityEngine.Object.Destroy(offscreenTexture);
 
 		/* Bottom Plane */
 
-		/*pa = new Vector3(-3.75f, -5.0f, -3.75f);
+		pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		pb = new Vector3(3.75f, -5.0f, -3.75f);
 		pc = new Vector3(-3.75f, -5.0f, 3.75f);
-		pe = GameObject.Find("LeftEyeAnchor").transform.localPosition;
+		pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
 		vc = pc - pe;
@@ -251,7 +251,7 @@ public class OffscreenRendering : MonoBehaviour {
 		// Render to texture
 		OffscreenCameraLeft.Render();
 		// Read offscreen texture
-		Texture2D offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
+		offscreenTexture = new Texture2D(OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height, TextureFormat.RGB24, false);
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraLeft.targetTexture.width, OffscreenCameraLeft.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
@@ -260,7 +260,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		pb = new Vector3(-3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, -3.75f);
-		pe = GameObject.Find("RightEyeAnchor").transform.localPosition;
+		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
 		vc = pc - pe;
@@ -296,7 +296,7 @@ public class OffscreenRendering : MonoBehaviour {
 		offscreenTexture.ReadPixels(new Rect(0, 0, OffscreenCameraRight.targetTexture.width, OffscreenCameraRight.targetTexture.height), 0, 0, false);
 		offscreenTexture.Apply();
 		// Delete texture.
-		UnityEngine.Object.Destroy(offscreenTexture);*/
+		UnityEngine.Object.Destroy(offscreenTexture);
 
 		// Reset previous render texture.
 		RenderTexture.active = currentRT;
