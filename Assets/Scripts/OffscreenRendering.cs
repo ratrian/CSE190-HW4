@@ -289,7 +289,7 @@ public class OffscreenRendering : MonoBehaviour {
 		if (!FreezeModeBehaviour.freeze)
 		{
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-			pPrimeRightPlaneRight = p * mT * t;
+			pPrimeBottomPlaneLeft = p * mT * t;
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
 
