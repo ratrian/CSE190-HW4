@@ -76,8 +76,8 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		if (!FreezeModeBehaviour.freeze)
 		{
-			pPrimeLeftPlaneLeft = p * mT * t;
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
+			pPrimeLeftPlaneLeft = p * mT * t;
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeLeftPlaneLeft;
 	
@@ -128,8 +128,8 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		if (!FreezeModeBehaviour.freeze)
 		{
-			pPrimeLeftPlaneRight = p * mT * t;
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
+			pPrimeLeftPlaneRight = p * mT * t;
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeLeftPlaneRight;
 
@@ -182,8 +182,8 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		if (!FreezeModeBehaviour.freeze)
 		{
-			pPrimeRightPlaneLeft = p * mT * t;
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
+			pPrimeRightPlaneLeft = p * mT * t;
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeRightPlaneLeft;
 
@@ -234,8 +234,8 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		if (!FreezeModeBehaviour.freeze)
 		{
-			pPrimeRightPlaneRight = p * mT * t;
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
+			pPrimeRightPlaneRight = p * mT * t;
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeRightPlaneRight;
 
@@ -288,8 +288,8 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		if (!FreezeModeBehaviour.freeze)
 		{
-			pPrimeBottomPlaneLeft = p * mT * t;
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
+			pPrimeRightPlaneRight = p * mT * t;
 		}
 		OffscreenCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
 
@@ -340,8 +340,8 @@ public class OffscreenRendering : MonoBehaviour {
 		t.SetRow(3, new Vector4(0.0f, 0.0f, 0.0f, 1.0f));
 		if (!FreezeModeBehaviour.freeze)
 		{
-			pPrimeBottomPlaneRight = p * mT * t;
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
+			pPrimeBottomPlaneRight = p * mT * t;
 		}
 		OffscreenCameraRight.projectionMatrix = pPrimeBottomPlaneRight;
 
