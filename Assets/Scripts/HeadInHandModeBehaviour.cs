@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeadInHandModeBehaviour : MonoBehaviour
 {
     public static bool controllerView;
+    public static bool displayPyramids;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,15 @@ public class HeadInHandModeBehaviour : MonoBehaviour
         else if (OVRInput.GetUp(OVRInput.Button.SecondaryIndexTrigger))
         {
             controllerView = false;
+        }
+
+        if (OVRInput.GetDown(OVRInput.Button.One))
+        {
+            displayPyramids = true;
+        }
+        else if (OVRInput.GetUp(OVRInput.Button.One))
+        {
+            displayPyramids = false;
         }
     }
 }

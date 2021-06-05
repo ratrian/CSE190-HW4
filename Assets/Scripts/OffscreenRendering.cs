@@ -119,7 +119,7 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeLeftPlaneLeft = p * mT * t;
 		}
 
-		if (DebugModeBehaviour.displayPyramids)
+		if (HeadInHandModeBehaviour.displayPyramids)
 		{
 			LeftPlaneLeftLine1.material.color = Color.green;
 			LeftPlaneLeftLine1.startColor = Color.green;
@@ -236,7 +236,7 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeLeftPlaneRight = p * mT * t;
 		}
 
-		if (DebugModeBehaviour.displayPyramids)
+		if (HeadInHandModeBehaviour.displayPyramids)
 		{
 			LeftPlaneRightLine1.material.color = Color.red;
 			LeftPlaneRightLine1.startColor = Color.red;
@@ -355,7 +355,7 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeRightPlaneLeft = p * mT * t;
 		}
 
-		if (DebugModeBehaviour.displayPyramids)
+		if (HeadInHandModeBehaviour.displayPyramids)
 		{
 			RightPlaneLeftLine1.material.color = Color.green;
 			RightPlaneLeftLine1.startColor = Color.green;
@@ -472,7 +472,7 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeRightPlaneRight = p * mT * t;
 		}
 
-		if (DebugModeBehaviour.displayPyramids)
+		if (HeadInHandModeBehaviour.displayPyramids)
 		{
 			RightPlaneRightLine1.material.color = Color.red;
 			RightPlaneRightLine1.startColor = Color.red;
@@ -591,7 +591,7 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeBottomPlaneLeft = p * mT * t;
 		}
 
-		if (DebugModeBehaviour.displayPyramids)
+		if (HeadInHandModeBehaviour.displayPyramids)
 		{
 			BottomPlaneLeftLine1.material.color = Color.green;
 			BottomPlaneLeftLine1.startColor = Color.green;
@@ -708,7 +708,7 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeBottomPlaneRight = p * mT * t;
 		}
 
-		if (DebugModeBehaviour.displayPyramids)
+		if (HeadInHandModeBehaviour.displayPyramids)
 		{
 			BottomPlaneRightLine1.material.color = Color.red;
 			BottomPlaneRightLine1.startColor = Color.red;
