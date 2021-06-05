@@ -35,29 +35,53 @@ public class OffscreenRendering : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		LeftPlaneLeftLine1 = new GameObject("LeftPlaneLeftLine1").AddComponent<LineRenderer>();
+		LeftPlaneLeftLine1.enabled = false;
 		LeftPlaneLeftLine2 = new GameObject("LeftPlaneLeftLine2").AddComponent<LineRenderer>();
+		LeftPlaneLeftLine2.enabled = false;
 		LeftPlaneLeftLine3 = new GameObject("LeftPlaneLeftLine3").AddComponent<LineRenderer>();
+		LeftPlaneLeftLine3.enabled = false;
 		LeftPlaneLeftLine4 = new GameObject("LeftPlaneLeftLine4").AddComponent<LineRenderer>();
+		LeftPlaneLeftLine4.enabled = false;
 		RightPlaneLeftLine1 = new GameObject("RightPlaneLeftLine1").AddComponent<LineRenderer>();
+		RightPlaneLeftLine1.enabled = false;
 		RightPlaneLeftLine2 = new GameObject("RightPlaneLeftLine2").AddComponent<LineRenderer>();
+		RightPlaneLeftLine2.enabled = false;
 		RightPlaneLeftLine3 = new GameObject("RightPlaneLeftLine3").AddComponent<LineRenderer>();
+		RightPlaneLeftLine3.enabled = false;
 		RightPlaneLeftLine4 = new GameObject("RightPlaneLeftLine4").AddComponent<LineRenderer>();
+		RightPlaneLeftLine4.enabled = false;
 		BottomPlaneLeftLine1 = new GameObject("BottomPlaneLeftLine1").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine1.enabled = false;
 		BottomPlaneLeftLine2 = new GameObject("BottomPlaneLeftLine2").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine2.enabled = false;
 		BottomPlaneLeftLine3 = new GameObject("BottomPlaneLeftLine3").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine3.enabled = false;
 		BottomPlaneLeftLine4 = new GameObject("BottomPlaneLeftLine4").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine4.enabled = false;
 		LeftPlaneRightLine1 = new GameObject("LeftPlaneRightLine1").AddComponent<LineRenderer>();
+		LeftPlaneRightLine1.enabled = false;
 		LeftPlaneRightLine2 = new GameObject("LeftPlaneRightLine2").AddComponent<LineRenderer>();
+		LeftPlaneRightLine2.enabled = false;
 		LeftPlaneRightLine3 = new GameObject("LeftPlaneRightLine3").AddComponent<LineRenderer>();
+		LeftPlaneRightLine3.enabled = false;
 		LeftPlaneRightLine4 = new GameObject("LeftPlaneRightLine4").AddComponent<LineRenderer>();
+		LeftPlaneRightLine4.enabled = false;
 		RightPlaneRightLine1 = new GameObject("RightPlaneRightLine1").AddComponent<LineRenderer>();
+		RightPlaneRightLine1.enabled = false;
 		RightPlaneRightLine2 = new GameObject("RightPlaneRightLine2").AddComponent<LineRenderer>();
+		RightPlaneRightLine2.enabled = false;
 		RightPlaneRightLine3 = new GameObject("RightPlaneRightLine3").AddComponent<LineRenderer>();
+		RightPlaneRightLine3.enabled = false;
 		RightPlaneRightLine4 = new GameObject("RightPlaneRightLine4").AddComponent<LineRenderer>();
+		RightPlaneRightLine4.enabled = false;
 		BottomPlaneRightLine1 = new GameObject("BottomPlaneRightLine1").AddComponent<LineRenderer>();
+		BottomPlaneRightLine1.enabled = false;
 		BottomPlaneRightLine2 = new GameObject("BottomPlaneRightLine2").AddComponent<LineRenderer>();
+		BottomPlaneRightLine2.enabled = false;
 		BottomPlaneRightLine3 = new GameObject("BottomPlaneRightLine3").AddComponent<LineRenderer>();
+		BottomPlaneRightLine3.enabled = false;
 		BottomPlaneRightLine4 = new GameObject("BottomPlaneRightLine4").AddComponent<LineRenderer>();
+		BottomPlaneRightLine4.enabled = false;
 
 		StartCoroutine("CaptureAndSaveFrames");
 	}
@@ -121,6 +145,7 @@ public class OffscreenRendering : MonoBehaviour {
 
 		if (HeadInHandModeBehaviour.displayPyramids)
 		{
+			LeftPlaneLeftLine1.enabled = true;
 			LeftPlaneLeftLine1.material.color = Color.green;
 			LeftPlaneLeftLine1.startColor = Color.green;
 			LeftPlaneLeftLine1.endColor = Color.green;
@@ -131,6 +156,7 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneLeftLine1.SetPosition(0, ControllerCameraLeft.transform.position);
 			LeftPlaneLeftLine1.SetPosition(1, pa);
 
+			LeftPlaneLeftLine2.enabled = true;
 			LeftPlaneLeftLine2.material.color = Color.green;
 			LeftPlaneLeftLine2.startColor = Color.green;
 			LeftPlaneLeftLine2.endColor = Color.green;
@@ -141,6 +167,7 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneLeftLine2.SetPosition(0, ControllerCameraLeft.transform.position);
 			LeftPlaneLeftLine2.SetPosition(1, pb);
 
+			LeftPlaneLeftLine3.enabled = true;
 			LeftPlaneLeftLine3.material.color = Color.green;
 			LeftPlaneLeftLine3.startColor = Color.green;
 			LeftPlaneLeftLine3.endColor = Color.green;
@@ -151,6 +178,7 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneLeftLine3.SetPosition(0, ControllerCameraLeft.transform.position);
 			LeftPlaneLeftLine3.SetPosition(1, pc);
 
+			LeftPlaneLeftLine4.enabled = true;
 			LeftPlaneLeftLine4.material.color = Color.green;
 			LeftPlaneLeftLine4.startColor = Color.green;
 			LeftPlaneLeftLine4.endColor = Color.green;
@@ -160,6 +188,13 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneLeftLine4.useWorldSpace = true;
 			LeftPlaneLeftLine4.SetPosition(0, ControllerCameraLeft.transform.position);
 			LeftPlaneLeftLine4.SetPosition(1, pd);
+		}
+		else
+		{
+			LeftPlaneLeftLine1.enabled = false;
+			LeftPlaneLeftLine2.enabled = false;
+			LeftPlaneLeftLine3.enabled = false;
+			LeftPlaneLeftLine4.enabled = false;
 		}
 
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 0))
@@ -238,6 +273,7 @@ public class OffscreenRendering : MonoBehaviour {
 
 		if (HeadInHandModeBehaviour.displayPyramids)
 		{
+			LeftPlaneRightLine1.enabled = true;
 			LeftPlaneRightLine1.material.color = Color.red;
 			LeftPlaneRightLine1.startColor = Color.red;
 			LeftPlaneRightLine1.endColor = Color.red;
@@ -248,6 +284,7 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneRightLine1.SetPosition(0, ControllerCameraRight.transform.position);
 			LeftPlaneRightLine1.SetPosition(1, pa);
 
+			LeftPlaneRightLine2.enabled = true;
 			LeftPlaneRightLine2.material.color = Color.red;
 			LeftPlaneRightLine2.startColor = Color.red;
 			LeftPlaneRightLine2.endColor = Color.red;
@@ -258,6 +295,7 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneRightLine2.SetPosition(0, ControllerCameraRight.transform.position);
 			LeftPlaneRightLine2.SetPosition(1, pb);
 
+			LeftPlaneRightLine3.enabled = true;
 			LeftPlaneRightLine3.material.color = Color.red;
 			LeftPlaneRightLine3.startColor = Color.red;
 			LeftPlaneRightLine3.endColor = Color.red;
@@ -268,6 +306,7 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneRightLine3.SetPosition(0, ControllerCameraRight.transform.position);
 			LeftPlaneRightLine3.SetPosition(1, pc);
 
+			LeftPlaneRightLine4.enabled = true;
 			LeftPlaneRightLine4.material.color = Color.red;
 			LeftPlaneRightLine4.startColor = Color.red;
 			LeftPlaneRightLine4.endColor = Color.red;
@@ -277,6 +316,13 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneRightLine4.useWorldSpace = true;
 			LeftPlaneRightLine4.SetPosition(0, ControllerCameraRight.transform.position);
 			LeftPlaneRightLine4.SetPosition(1, pd);
+		}
+		else
+		{
+			LeftPlaneRightLine1.enabled = false;
+			LeftPlaneRightLine2.enabled = false;
+			LeftPlaneRightLine3.enabled = false;
+			LeftPlaneRightLine4.enabled = false;
 		}
 
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 1))
@@ -357,6 +403,7 @@ public class OffscreenRendering : MonoBehaviour {
 
 		if (HeadInHandModeBehaviour.displayPyramids)
 		{
+			RightPlaneLeftLine1.enabled = true;
 			RightPlaneLeftLine1.material.color = Color.green;
 			RightPlaneLeftLine1.startColor = Color.green;
 			RightPlaneLeftLine1.endColor = Color.green;
@@ -367,6 +414,7 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneLeftLine1.SetPosition(0, ControllerCameraLeft.transform.position);
 			RightPlaneLeftLine1.SetPosition(1, pa);
 
+			RightPlaneLeftLine2.enabled = true;
 			RightPlaneLeftLine2.material.color = Color.green;
 			RightPlaneLeftLine2.startColor = Color.green;
 			RightPlaneLeftLine2.endColor = Color.green;
@@ -377,6 +425,7 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneLeftLine2.SetPosition(0, ControllerCameraLeft.transform.position);
 			RightPlaneLeftLine2.SetPosition(1, pb);
 
+			RightPlaneLeftLine3.enabled = true;
 			RightPlaneLeftLine3.material.color = Color.green;
 			RightPlaneLeftLine3.startColor = Color.green;
 			RightPlaneLeftLine3.endColor = Color.green;
@@ -387,6 +436,7 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneLeftLine3.SetPosition(0, ControllerCameraLeft.transform.position);
 			RightPlaneLeftLine3.SetPosition(1, pc);
 
+			RightPlaneLeftLine4.enabled = true;
 			RightPlaneLeftLine4.material.color = Color.green;
 			RightPlaneLeftLine4.startColor = Color.green;
 			RightPlaneLeftLine4.endColor = Color.green;
@@ -396,6 +446,13 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneLeftLine4.useWorldSpace = true;
 			RightPlaneLeftLine4.SetPosition(0, ControllerCameraLeft.transform.position);
 			RightPlaneLeftLine4.SetPosition(1, pd);
+		}
+		else
+		{
+			RightPlaneLeftLine1.enabled = false;
+			RightPlaneLeftLine2.enabled = false;
+			RightPlaneLeftLine3.enabled = false;
+			RightPlaneLeftLine4.enabled = false;
 		}
 
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 2))
@@ -474,6 +531,7 @@ public class OffscreenRendering : MonoBehaviour {
 
 		if (HeadInHandModeBehaviour.displayPyramids)
 		{
+			RightPlaneRightLine1.enabled = true;
 			RightPlaneRightLine1.material.color = Color.red;
 			RightPlaneRightLine1.startColor = Color.red;
 			RightPlaneRightLine1.endColor = Color.red;
@@ -484,6 +542,7 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneRightLine1.SetPosition(0, ControllerCameraRight.transform.position);
 			RightPlaneRightLine1.SetPosition(1, pa);
 
+			RightPlaneRightLine2.enabled = true;
 			RightPlaneRightLine2.material.color = Color.red;
 			RightPlaneRightLine2.startColor = Color.red;
 			RightPlaneRightLine2.endColor = Color.red;
@@ -494,6 +553,7 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneRightLine2.SetPosition(0, ControllerCameraRight.transform.position);
 			RightPlaneRightLine2.SetPosition(1, pb);
 
+			RightPlaneRightLine3.enabled = true;
 			RightPlaneRightLine3.material.color = Color.red;
 			RightPlaneRightLine3.startColor = Color.red;
 			RightPlaneRightLine3.endColor = Color.red;
@@ -504,6 +564,7 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneRightLine3.SetPosition(0, ControllerCameraRight.transform.position);
 			RightPlaneRightLine3.SetPosition(1, pc);
 
+			RightPlaneRightLine4.enabled = true;
 			RightPlaneRightLine4.material.color = Color.red;
 			RightPlaneRightLine4.startColor = Color.red;
 			RightPlaneRightLine4.endColor = Color.red;
@@ -513,6 +574,13 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneRightLine4.useWorldSpace = true;
 			RightPlaneRightLine4.SetPosition(0, ControllerCameraRight.transform.position);
 			RightPlaneRightLine4.SetPosition(1, pd);
+		}
+		else
+		{
+			RightPlaneRightLine1.enabled = false;
+			RightPlaneRightLine2.enabled = false;
+			RightPlaneRightLine3.enabled = false;
+			RightPlaneRightLine4.enabled = false;
 		}
 
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 3))
@@ -593,6 +661,7 @@ public class OffscreenRendering : MonoBehaviour {
 
 		if (HeadInHandModeBehaviour.displayPyramids)
 		{
+			BottomPlaneLeftLine1.enabled = true;
 			BottomPlaneLeftLine1.material.color = Color.green;
 			BottomPlaneLeftLine1.startColor = Color.green;
 			BottomPlaneLeftLine1.endColor = Color.green;
@@ -603,6 +672,7 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneLeftLine1.SetPosition(0, ControllerCameraLeft.transform.position);
 			BottomPlaneLeftLine1.SetPosition(1, pa);
 
+			BottomPlaneLeftLine2.enabled = true;
 			BottomPlaneLeftLine2.material.color = Color.green;
 			BottomPlaneLeftLine2.startColor = Color.green;
 			BottomPlaneLeftLine2.endColor = Color.green;
@@ -613,6 +683,7 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneLeftLine2.SetPosition(0, ControllerCameraLeft.transform.position);
 			BottomPlaneLeftLine2.SetPosition(1, pb);
 
+			BottomPlaneLeftLine3.enabled = true;
 			BottomPlaneLeftLine3.material.color = Color.green;
 			BottomPlaneLeftLine3.startColor = Color.green;
 			BottomPlaneLeftLine3.endColor = Color.green;
@@ -623,6 +694,7 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneLeftLine3.SetPosition(0, ControllerCameraLeft.transform.position);
 			BottomPlaneLeftLine3.SetPosition(1, pc);
 
+			BottomPlaneLeftLine4.enabled = true;
 			BottomPlaneLeftLine4.material.color = Color.green;
 			BottomPlaneLeftLine4.startColor = Color.green;
 			BottomPlaneLeftLine4.endColor = Color.green;
@@ -632,6 +704,13 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneLeftLine4.useWorldSpace = true;
 			BottomPlaneLeftLine4.SetPosition(0, ControllerCameraLeft.transform.position);
 			BottomPlaneLeftLine4.SetPosition(1, pd);
+		}
+		else
+		{
+			BottomPlaneLeftLine1.enabled = false;
+			BottomPlaneLeftLine2.enabled = false;
+			BottomPlaneLeftLine3.enabled = false;
+			BottomPlaneLeftLine4.enabled = false;
 		}
 
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 4))
@@ -710,6 +789,7 @@ public class OffscreenRendering : MonoBehaviour {
 
 		if (HeadInHandModeBehaviour.displayPyramids)
 		{
+			BottomPlaneRightLine1.enabled = true;
 			BottomPlaneRightLine1.material.color = Color.red;
 			BottomPlaneRightLine1.startColor = Color.red;
 			BottomPlaneRightLine1.endColor = Color.red;
@@ -720,6 +800,7 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneRightLine1.SetPosition(0, ControllerCameraRight.transform.position);
 			BottomPlaneRightLine1.SetPosition(1, pa);
 
+			BottomPlaneRightLine2.enabled = true;
 			BottomPlaneRightLine2.material.color = Color.red;
 			BottomPlaneRightLine2.startColor = Color.red;
 			BottomPlaneRightLine2.endColor = Color.red;
@@ -730,6 +811,7 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneRightLine2.SetPosition(0, ControllerCameraRight.transform.position);
 			BottomPlaneRightLine2.SetPosition(1, pb);
 
+			BottomPlaneRightLine3.enabled = true;
 			BottomPlaneRightLine3.material.color = Color.red;
 			BottomPlaneRightLine3.startColor = Color.red;
 			BottomPlaneRightLine3.endColor = Color.red;
@@ -740,6 +822,7 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneRightLine3.SetPosition(0, ControllerCameraRight.transform.position);
 			BottomPlaneRightLine3.SetPosition(1, pc);
 
+			BottomPlaneRightLine4.enabled = true;
 			BottomPlaneRightLine4.material.color = Color.red;
 			BottomPlaneRightLine4.startColor = Color.red;
 			BottomPlaneRightLine4.endColor = Color.red;
@@ -749,6 +832,13 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneRightLine4.useWorldSpace = true;
 			BottomPlaneRightLine4.SetPosition(0, ControllerCameraRight.transform.position);
 			BottomPlaneRightLine4.SetPosition(1, pd);
+		}
+		else
+		{
+			BottomPlaneRightLine1.enabled = false;
+			BottomPlaneRightLine2.enabled = false;
+			BottomPlaneRightLine3.enabled = false;
+			BottomPlaneRightLine4.enabled = false;
 		}
 
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 5))
