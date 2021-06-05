@@ -78,7 +78,6 @@ public class OffscreenRendering : MonoBehaviour {
 		if (!FreezeModeBehaviour.freeze)
 		{
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-			GameObject.Find("lparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x -= 0.0325f;
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
@@ -144,7 +143,6 @@ public class OffscreenRendering : MonoBehaviour {
 		if (!FreezeModeBehaviour.freeze)
 		{
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
-			GameObject.Find("rparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x += 0.0325f;
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
@@ -212,7 +210,6 @@ public class OffscreenRendering : MonoBehaviour {
 		if (!FreezeModeBehaviour.freeze)
 		{
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-			GameObject.Find("lparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x -= 0.0325f;
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
@@ -278,7 +275,6 @@ public class OffscreenRendering : MonoBehaviour {
 		if (!FreezeModeBehaviour.freeze)
 		{
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
-			GameObject.Find("rparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x += 0.0325f;
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
@@ -346,7 +342,6 @@ public class OffscreenRendering : MonoBehaviour {
 		if (!FreezeModeBehaviour.freeze)
 		{
 			GameObject.Find("lparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.LeftEye);
-			GameObject.Find("lparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.LeftEye);
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x -= 0.0325f;
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
@@ -412,7 +407,6 @@ public class OffscreenRendering : MonoBehaviour {
 		if (!FreezeModeBehaviour.freeze)
 		{
 			GameObject.Find("rparent").transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightEye);
-			GameObject.Find("rparent").transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightEye);
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x += 0.0325f;
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
