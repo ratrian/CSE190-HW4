@@ -24,6 +24,7 @@ public class OffscreenRendering : MonoBehaviour {
 	public Camera ControllerCameraLeft, ControllerCameraRight;
 	public RenderTexture LeftPlaneLeftTexture, RightPlaneLeftTexture, BottomPlaneLeftTexture, LeftPlaneRightTexture, RightPlaneRightTexture, BottomPlaneRightTexture;
 	Matrix4x4 pPrimeLeftPlaneLeft, pPrimeRightPlaneLeft, pPrimeBottomPlaneLeft, pPrimeLeftPlaneRight, pPrimeRightPlaneRight, pPrimeBottomPlaneRight;
+	LineRenderer LeftPlaneLeftLine1, LeftPlaneLeftLine2, LeftPlaneLeftLine3, LeftPlaneLeftLine4, RightPlaneLeftLine1, RightPlaneLeftLine2, RightPlaneLeftLine3, RightPlaneLeftLine4, BottomPlaneLeftLine1, BottomPlaneLeftLine2, BottomPlaneLeftLine3, BottomPlaneLeftLine4, LeftPlaneRightLine1, LeftPlaneRightLine2, LeftPlaneRightLine3, LeftPlaneRightLine4, RightPlaneRightLine1, RightPlaneRightLine2, RightPlaneRightLine3, RightPlaneRightLine4, BottomPlaneRightLine1, BottomPlaneRightLine2, BottomPlaneRightLine3, BottomPlaneRightLine4;
 	#endregion
 	/// <summary>
 	/// Keep track of saved frames.
@@ -33,6 +34,31 @@ public class OffscreenRendering : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		LeftPlaneLeftLine1 = new GameObject("LeftPlaneLeftLine1").AddComponent<LineRenderer>();
+		LeftPlaneLeftLine2 = new GameObject("LeftPlaneLeftLine2").AddComponent<LineRenderer>();
+		LeftPlaneLeftLine3 = new GameObject("LeftPlaneLeftLine3").AddComponent<LineRenderer>();
+		LeftPlaneLeftLine4 = new GameObject("LeftPlaneLeftLine4").AddComponent<LineRenderer>();
+		RightPlaneLeftLine1 = new GameObject("RightPlaneLeftLine1").AddComponent<LineRenderer>();
+		RightPlaneLeftLine2 = new GameObject("RightPlaneLeftLine2").AddComponent<LineRenderer>();
+		RightPlaneLeftLine3 = new GameObject("RightPlaneLeftLine3").AddComponent<LineRenderer>();
+		RightPlaneLeftLine4 = new GameObject("RightPlaneLeftLine4").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine1 = new GameObject("BottomPlaneLeftLine1").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine2 = new GameObject("BottomPlaneLeftLine2").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine3 = new GameObject("BottomPlaneLeftLine3").AddComponent<LineRenderer>();
+		BottomPlaneLeftLine4 = new GameObject("BottomPlaneLeftLine4").AddComponent<LineRenderer>();
+		LeftPlaneRightLine1 = new GameObject("LeftPlaneRightLine1").AddComponent<LineRenderer>();
+		LeftPlaneRightLine2 = new GameObject("LeftPlaneRightLine2").AddComponent<LineRenderer>();
+		LeftPlaneRightLine3 = new GameObject("LeftPlaneRightLine3").AddComponent<LineRenderer>();
+		LeftPlaneRightLine4 = new GameObject("LeftPlaneRightLine4").AddComponent<LineRenderer>();
+		RightPlaneRightLine1 = new GameObject("RightPlaneRightLine1").AddComponent<LineRenderer>();
+		RightPlaneRightLine2 = new GameObject("RightPlaneRightLine2").AddComponent<LineRenderer>();
+		RightPlaneRightLine3 = new GameObject("RightPlaneRightLine3").AddComponent<LineRenderer>();
+		RightPlaneRightLine4 = new GameObject("RightPlaneRightLine4").AddComponent<LineRenderer>();
+		BottomPlaneRightLine1 = new GameObject("BottomPlaneRightLine1").AddComponent<LineRenderer>();
+		BottomPlaneRightLine2 = new GameObject("BottomPlaneRightLine2").AddComponent<LineRenderer>();
+		BottomPlaneRightLine3 = new GameObject("BottomPlaneRightLine3").AddComponent<LineRenderer>();
+		BottomPlaneRightLine4 = new GameObject("BottomPlaneRightLine4").AddComponent<LineRenderer>();
+
 		StartCoroutine("CaptureAndSaveFrames");
 	}
 	
@@ -52,6 +78,7 @@ public class OffscreenRendering : MonoBehaviour {
 		Vector3 pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		Vector3 pb = new Vector3(-3.75f, -5.0f, 3.75f);
 		Vector3 pc = new Vector3(-3.75f, 2.5f, -3.75f);
+		Vector3 pd = new Vector3(-3.75f, 2.5f, 3.75f);
 		Vector3 pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
 		Vector3 va = pa - pe;
 		Vector3 vb = pb - pe;
@@ -91,7 +118,50 @@ public class OffscreenRendering : MonoBehaviour {
 			}
 			pPrimeLeftPlaneLeft = p * mT * t;
 		}
-	
+
+		if (DebugModeBehaviour.displayPyramids)
+		{
+			LeftPlaneLeftLine1.material.color = Color.green;
+			LeftPlaneLeftLine1.startColor = Color.green;
+			LeftPlaneLeftLine1.endColor = Color.green;
+			LeftPlaneLeftLine1.startWidth = 0.01f;
+			LeftPlaneLeftLine1.endWidth = 0.01f;
+			LeftPlaneLeftLine1.positionCount = 2;
+			LeftPlaneLeftLine1.useWorldSpace = true;
+			LeftPlaneLeftLine1.SetPosition(0, ControllerCameraLeft.transform.position);
+			LeftPlaneLeftLine1.SetPosition(1, pa);
+
+			LeftPlaneLeftLine2.material.color = Color.green;
+			LeftPlaneLeftLine2.startColor = Color.green;
+			LeftPlaneLeftLine2.endColor = Color.green;
+			LeftPlaneLeftLine2.startWidth = 0.01f;
+			LeftPlaneLeftLine2.endWidth = 0.01f;
+			LeftPlaneLeftLine2.positionCount = 2;
+			LeftPlaneLeftLine2.useWorldSpace = true;
+			LeftPlaneLeftLine2.SetPosition(0, ControllerCameraLeft.transform.position);
+			LeftPlaneLeftLine2.SetPosition(1, pb);
+
+			LeftPlaneLeftLine3.material.color = Color.green;
+			LeftPlaneLeftLine3.startColor = Color.green;
+			LeftPlaneLeftLine3.endColor = Color.green;
+			LeftPlaneLeftLine3.startWidth = 0.01f;
+			LeftPlaneLeftLine3.endWidth = 0.01f;
+			LeftPlaneLeftLine3.positionCount = 2;
+			LeftPlaneLeftLine3.useWorldSpace = true;
+			LeftPlaneLeftLine3.SetPosition(0, ControllerCameraLeft.transform.position);
+			LeftPlaneLeftLine3.SetPosition(1, pc);
+
+			LeftPlaneLeftLine4.material.color = Color.green;
+			LeftPlaneLeftLine4.startColor = Color.green;
+			LeftPlaneLeftLine4.endColor = Color.green;
+			LeftPlaneLeftLine4.startWidth = 0.01f;
+			LeftPlaneLeftLine4.endWidth = 0.01f;
+			LeftPlaneLeftLine4.positionCount = 2;
+			LeftPlaneLeftLine4.useWorldSpace = true;
+			LeftPlaneLeftLine4.SetPosition(0, ControllerCameraLeft.transform.position);
+			LeftPlaneLeftLine4.SetPosition(1, pd);
+		}
+
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 0))
 		{
 			LeftPlaneLeftTexture.Release();
@@ -125,6 +195,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		pb = new Vector3(-3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, -3.75f);
+		pd = new Vector3(-3.75f, 2.5f, 3.75f);
 		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
@@ -165,6 +236,49 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeLeftPlaneRight = p * mT * t;
 		}
 
+		if (DebugModeBehaviour.displayPyramids)
+		{
+			LeftPlaneRightLine1.material.color = Color.red;
+			LeftPlaneRightLine1.startColor = Color.red;
+			LeftPlaneRightLine1.endColor = Color.red;
+			LeftPlaneRightLine1.startWidth = 0.01f;
+			LeftPlaneRightLine1.endWidth = 0.01f;
+			LeftPlaneRightLine1.positionCount = 2;
+			LeftPlaneRightLine1.useWorldSpace = true;
+			LeftPlaneRightLine1.SetPosition(0, ControllerCameraRight.transform.position);
+			LeftPlaneRightLine1.SetPosition(1, pa);
+
+			LeftPlaneRightLine2.material.color = Color.red;
+			LeftPlaneRightLine2.startColor = Color.red;
+			LeftPlaneRightLine2.endColor = Color.red;
+			LeftPlaneRightLine2.startWidth = 0.01f;
+			LeftPlaneRightLine2.endWidth = 0.01f;
+			LeftPlaneRightLine2.positionCount = 2;
+			LeftPlaneRightLine2.useWorldSpace = true;
+			LeftPlaneRightLine2.SetPosition(0, ControllerCameraRight.transform.position);
+			LeftPlaneRightLine2.SetPosition(1, pb);
+
+			LeftPlaneRightLine3.material.color = Color.red;
+			LeftPlaneRightLine3.startColor = Color.red;
+			LeftPlaneRightLine3.endColor = Color.red;
+			LeftPlaneRightLine3.startWidth = 0.01f;
+			LeftPlaneRightLine3.endWidth = 0.01f;
+			LeftPlaneRightLine3.positionCount = 2;
+			LeftPlaneRightLine3.useWorldSpace = true;
+			LeftPlaneRightLine3.SetPosition(0, ControllerCameraRight.transform.position);
+			LeftPlaneRightLine3.SetPosition(1, pc);
+
+			LeftPlaneRightLine4.material.color = Color.red;
+			LeftPlaneRightLine4.startColor = Color.red;
+			LeftPlaneRightLine4.endColor = Color.red;
+			LeftPlaneRightLine4.startWidth = 0.01f;
+			LeftPlaneRightLine4.endWidth = 0.01f;
+			LeftPlaneRightLine4.positionCount = 2;
+			LeftPlaneRightLine4.useWorldSpace = true;
+			LeftPlaneRightLine4.SetPosition(0, ControllerCameraRight.transform.position);
+			LeftPlaneRightLine4.SetPosition(1, pd);
+		}
+
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 1))
 		{
 			LeftPlaneRightTexture.Release();
@@ -200,6 +314,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(-3.75f, -5.0f, 3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, 3.75f);
+		pd = new Vector3(3.75f, 2.5f, 3.75f);
 		pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
@@ -240,6 +355,49 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeRightPlaneLeft = p * mT * t;
 		}
 
+		if (DebugModeBehaviour.displayPyramids)
+		{
+			RightPlaneLeftLine1.material.color = Color.green;
+			RightPlaneLeftLine1.startColor = Color.green;
+			RightPlaneLeftLine1.endColor = Color.green;
+			RightPlaneLeftLine1.startWidth = 0.01f;
+			RightPlaneLeftLine1.endWidth = 0.01f;
+			RightPlaneLeftLine1.positionCount = 2;
+			RightPlaneLeftLine1.useWorldSpace = true;
+			RightPlaneLeftLine1.SetPosition(0, ControllerCameraLeft.transform.position);
+			RightPlaneLeftLine1.SetPosition(1, pa);
+
+			RightPlaneLeftLine2.material.color = Color.green;
+			RightPlaneLeftLine2.startColor = Color.green;
+			RightPlaneLeftLine2.endColor = Color.green;
+			RightPlaneLeftLine2.startWidth = 0.01f;
+			RightPlaneLeftLine2.endWidth = 0.01f;
+			RightPlaneLeftLine2.positionCount = 2;
+			RightPlaneLeftLine2.useWorldSpace = true;
+			RightPlaneLeftLine2.SetPosition(0, ControllerCameraLeft.transform.position);
+			RightPlaneLeftLine2.SetPosition(1, pb);
+
+			RightPlaneLeftLine3.material.color = Color.green;
+			RightPlaneLeftLine3.startColor = Color.green;
+			RightPlaneLeftLine3.endColor = Color.green;
+			RightPlaneLeftLine3.startWidth = 0.01f;
+			RightPlaneLeftLine3.endWidth = 0.01f;
+			RightPlaneLeftLine3.positionCount = 2;
+			RightPlaneLeftLine3.useWorldSpace = true;
+			RightPlaneLeftLine3.SetPosition(0, ControllerCameraLeft.transform.position);
+			RightPlaneLeftLine3.SetPosition(1, pc);
+
+			RightPlaneLeftLine4.material.color = Color.green;
+			RightPlaneLeftLine4.startColor = Color.green;
+			RightPlaneLeftLine4.endColor = Color.green;
+			RightPlaneLeftLine4.startWidth = 0.01f;
+			RightPlaneLeftLine4.endWidth = 0.01f;
+			RightPlaneLeftLine4.positionCount = 2;
+			RightPlaneLeftLine4.useWorldSpace = true;
+			RightPlaneLeftLine4.SetPosition(0, ControllerCameraLeft.transform.position);
+			RightPlaneLeftLine4.SetPosition(1, pd);
+		}
+
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 2))
 		{
 			RightPlaneLeftTexture.Release();
@@ -273,6 +431,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(-3.75f, -5.0f, 3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, 3.75f);
+		pd = new Vector3(3.75f, 2.5f, 3.75f);
 		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
@@ -313,6 +472,49 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeRightPlaneRight = p * mT * t;
 		}
 
+		if (DebugModeBehaviour.displayPyramids)
+		{
+			RightPlaneRightLine1.material.color = Color.red;
+			RightPlaneRightLine1.startColor = Color.red;
+			RightPlaneRightLine1.endColor = Color.red;
+			RightPlaneRightLine1.startWidth = 0.01f;
+			RightPlaneRightLine1.endWidth = 0.01f;
+			RightPlaneRightLine1.positionCount = 2;
+			RightPlaneRightLine1.useWorldSpace = true;
+			RightPlaneRightLine1.SetPosition(0, ControllerCameraRight.transform.position);
+			RightPlaneRightLine1.SetPosition(1, pa);
+
+			RightPlaneRightLine2.material.color = Color.red;
+			RightPlaneRightLine2.startColor = Color.red;
+			RightPlaneRightLine2.endColor = Color.red;
+			RightPlaneRightLine2.startWidth = 0.01f;
+			RightPlaneRightLine2.endWidth = 0.01f;
+			RightPlaneRightLine2.positionCount = 2;
+			RightPlaneRightLine2.useWorldSpace = true;
+			RightPlaneRightLine2.SetPosition(0, ControllerCameraRight.transform.position);
+			RightPlaneRightLine2.SetPosition(1, pb);
+
+			RightPlaneRightLine3.material.color = Color.red;
+			RightPlaneRightLine3.startColor = Color.red;
+			RightPlaneRightLine3.endColor = Color.red;
+			RightPlaneRightLine3.startWidth = 0.01f;
+			RightPlaneRightLine3.endWidth = 0.01f;
+			RightPlaneRightLine3.positionCount = 2;
+			RightPlaneRightLine3.useWorldSpace = true;
+			RightPlaneRightLine3.SetPosition(0, ControllerCameraRight.transform.position);
+			RightPlaneRightLine3.SetPosition(1, pc);
+
+			RightPlaneRightLine4.material.color = Color.red;
+			RightPlaneRightLine4.startColor = Color.red;
+			RightPlaneRightLine4.endColor = Color.red;
+			RightPlaneRightLine4.startWidth = 0.01f;
+			RightPlaneRightLine4.endWidth = 0.01f;
+			RightPlaneRightLine4.positionCount = 2;
+			RightPlaneRightLine4.useWorldSpace = true;
+			RightPlaneRightLine4.SetPosition(0, ControllerCameraRight.transform.position);
+			RightPlaneRightLine4.SetPosition(1, pd);
+		}
+
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 3))
 		{
 			RightPlaneRightTexture.Release();
@@ -348,6 +550,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(3.75f, -5.0f, -3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, -5.0f, -3.75f);
+		pd = new Vector3(-3.75f, -5.0f, 3.75f);
 		pe = GameObject.Find("LeftEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
@@ -388,6 +591,49 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeBottomPlaneLeft = p * mT * t;
 		}
 
+		if (DebugModeBehaviour.displayPyramids)
+		{
+			BottomPlaneLeftLine1.material.color = Color.green;
+			BottomPlaneLeftLine1.startColor = Color.green;
+			BottomPlaneLeftLine1.endColor = Color.green;
+			BottomPlaneLeftLine1.startWidth = 0.01f;
+			BottomPlaneLeftLine1.endWidth = 0.01f;
+			BottomPlaneLeftLine1.positionCount = 2;
+			BottomPlaneLeftLine1.useWorldSpace = true;
+			BottomPlaneLeftLine1.SetPosition(0, ControllerCameraLeft.transform.position);
+			BottomPlaneLeftLine1.SetPosition(1, pa);
+
+			BottomPlaneLeftLine2.material.color = Color.green;
+			BottomPlaneLeftLine2.startColor = Color.green;
+			BottomPlaneLeftLine2.endColor = Color.green;
+			BottomPlaneLeftLine2.startWidth = 0.01f;
+			BottomPlaneLeftLine2.endWidth = 0.01f;
+			BottomPlaneLeftLine2.positionCount = 2;
+			BottomPlaneLeftLine2.useWorldSpace = true;
+			BottomPlaneLeftLine2.SetPosition(0, ControllerCameraLeft.transform.position);
+			BottomPlaneLeftLine2.SetPosition(1, pb);
+
+			BottomPlaneLeftLine3.material.color = Color.green;
+			BottomPlaneLeftLine3.startColor = Color.green;
+			BottomPlaneLeftLine3.endColor = Color.green;
+			BottomPlaneLeftLine3.startWidth = 0.01f;
+			BottomPlaneLeftLine3.endWidth = 0.01f;
+			BottomPlaneLeftLine3.positionCount = 2;
+			BottomPlaneLeftLine3.useWorldSpace = true;
+			BottomPlaneLeftLine3.SetPosition(0, ControllerCameraLeft.transform.position);
+			BottomPlaneLeftLine3.SetPosition(1, pc);
+
+			BottomPlaneLeftLine4.material.color = Color.green;
+			BottomPlaneLeftLine4.startColor = Color.green;
+			BottomPlaneLeftLine4.endColor = Color.green;
+			BottomPlaneLeftLine4.startWidth = 0.01f;
+			BottomPlaneLeftLine4.endWidth = 0.01f;
+			BottomPlaneLeftLine4.positionCount = 2;
+			BottomPlaneLeftLine4.useWorldSpace = true;
+			BottomPlaneLeftLine4.SetPosition(0, ControllerCameraLeft.transform.position);
+			BottomPlaneLeftLine4.SetPosition(1, pd);
+		}
+
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 4))
 		{
 			BottomPlaneLeftTexture.Release();
@@ -421,6 +667,7 @@ public class OffscreenRendering : MonoBehaviour {
 		pa = new Vector3(3.75f, -5.0f, -3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, -5.0f, -3.75f);
+		pd = new Vector3(-3.75f, -5.0f, 3.75f);
 		pe = GameObject.Find("RightEyeAnchor").GetComponent<Camera>().transform.position;
 		va = pa - pe;
 		vb = pb - pe;
@@ -459,6 +706,49 @@ public class OffscreenRendering : MonoBehaviour {
 				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 8);
 			}
 			pPrimeBottomPlaneRight = p * mT * t;
+		}
+
+		if (DebugModeBehaviour.displayPyramids)
+		{
+			BottomPlaneRightLine1.material.color = Color.red;
+			BottomPlaneRightLine1.startColor = Color.red;
+			BottomPlaneRightLine1.endColor = Color.red;
+			BottomPlaneRightLine1.startWidth = 0.01f;
+			BottomPlaneRightLine1.endWidth = 0.01f;
+			BottomPlaneRightLine1.positionCount = 2;
+			BottomPlaneRightLine1.useWorldSpace = true;
+			BottomPlaneRightLine1.SetPosition(0, ControllerCameraRight.transform.position);
+			BottomPlaneRightLine1.SetPosition(1, pa);
+
+			BottomPlaneRightLine2.material.color = Color.red;
+			BottomPlaneRightLine2.startColor = Color.red;
+			BottomPlaneRightLine2.endColor = Color.red;
+			BottomPlaneRightLine2.startWidth = 0.01f;
+			BottomPlaneRightLine2.endWidth = 0.01f;
+			BottomPlaneRightLine2.positionCount = 2;
+			BottomPlaneRightLine2.useWorldSpace = true;
+			BottomPlaneRightLine2.SetPosition(0, ControllerCameraRight.transform.position);
+			BottomPlaneRightLine2.SetPosition(1, pb);
+
+			BottomPlaneRightLine3.material.color = Color.red;
+			BottomPlaneRightLine3.startColor = Color.red;
+			BottomPlaneRightLine3.endColor = Color.red;
+			BottomPlaneRightLine3.startWidth = 0.01f;
+			BottomPlaneRightLine3.endWidth = 0.01f;
+			BottomPlaneRightLine3.positionCount = 2;
+			BottomPlaneRightLine3.useWorldSpace = true;
+			BottomPlaneRightLine3.SetPosition(0, ControllerCameraRight.transform.position);
+			BottomPlaneRightLine3.SetPosition(1, pc);
+
+			BottomPlaneRightLine4.material.color = Color.red;
+			BottomPlaneRightLine4.startColor = Color.red;
+			BottomPlaneRightLine4.endColor = Color.red;
+			BottomPlaneRightLine4.startWidth = 0.01f;
+			BottomPlaneRightLine4.endWidth = 0.01f;
+			BottomPlaneRightLine4.positionCount = 2;
+			BottomPlaneRightLine4.useWorldSpace = true;
+			BottomPlaneRightLine4.SetPosition(0, ControllerCameraRight.transform.position);
+			BottomPlaneRightLine4.SetPosition(1, pd);
 		}
 
 		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 5))
