@@ -81,6 +81,14 @@ public class OffscreenRendering : MonoBehaviour {
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x -= 0.0325f;
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
+			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
+			{
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 8);
+			}
+			else
+            {
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
+			}
 			pPrimeLeftPlaneLeft = p * mT * t;
 		}
 	
@@ -146,6 +154,14 @@ public class OffscreenRendering : MonoBehaviour {
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x += 0.0325f;
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
+			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
+			{
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
+			}
+			else
+			{
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 8);
+			}
 			pPrimeLeftPlaneRight = p * mT * t;
 		}
 
@@ -213,6 +229,14 @@ public class OffscreenRendering : MonoBehaviour {
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x -= 0.0325f;
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
+			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
+			{
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 8);
+			}
+			else
+			{
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
+			}
 			pPrimeRightPlaneLeft = p * mT * t;
 		}
 
@@ -278,6 +302,14 @@ public class OffscreenRendering : MonoBehaviour {
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x += 0.0325f;
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
+			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
+			{
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
+			}
+			else
+			{
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 8);
+			}
 			pPrimeRightPlaneRight = p * mT * t;
 		}
 
@@ -345,6 +377,14 @@ public class OffscreenRendering : MonoBehaviour {
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x -= 0.0325f;
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
+			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
+			{
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 8);
+			}
+			else
+			{
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
+			}
 			pPrimeBottomPlaneLeft = p * mT * t;
 		}
 
@@ -410,6 +450,14 @@ public class OffscreenRendering : MonoBehaviour {
 			Vector3 temp = UnityEngine.XR.InputTracking.GetLocalPosition(UnityEngine.XR.XRNode.RightHand);
 			temp.x += 0.0325f;
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
+			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
+			{
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
+			}
+			else
+			{
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 8);
+			}
 			pPrimeBottomPlaneRight = p * mT * t;
 		}
 
