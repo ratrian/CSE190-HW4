@@ -115,7 +115,7 @@ public class OffscreenRendering : MonoBehaviour {
 		float right = Vector3.Dot(vr, vb) * (0.3f) / d;
 		float bottom = Vector3.Dot(vu, va) * (0.3f) / d;
 		float top = Vector3.Dot(vu, vc) * (0.3f) / d;
-		Matrix4x4 p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 1000.0f);
+		Matrix4x4 p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 100000000.0f);
 		Matrix4x4 mT = new Matrix4x4();
 		mT.SetRow(0, new Vector4(-vr.x, -vr.y, vr.z, 0.0f));
 		mT.SetRow(1, new Vector4(-vu.x, -vu.y, vu.z, 0.0f));
@@ -134,11 +134,11 @@ public class OffscreenRendering : MonoBehaviour {
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
 			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
 			{
-				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 8);
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
 			}
 			else
             {
-				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
+				ControllerCameraLeft.cullingMask = (1 << 8) | (1 << 10);
 			}
 			pPrimeLeftPlaneLeft = p * mT * t;
 		}
@@ -243,7 +243,7 @@ public class OffscreenRendering : MonoBehaviour {
 		right = Vector3.Dot(vr, vb) * (0.3f) / d;
 		bottom = Vector3.Dot(vu, va) * (0.3f) / d;
 		top = Vector3.Dot(vu, vc) * (0.3f) / d;
-		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 1000.0f);
+		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 100000000.0f);
 		mT = new Matrix4x4();
 		mT.SetRow(0, new Vector4(-vr.x, -vr.y, vr.z, 0.0f));
 		mT.SetRow(1, new Vector4(-vu.x, -vu.y, vu.z, 0.0f));
@@ -262,11 +262,11 @@ public class OffscreenRendering : MonoBehaviour {
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
 			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
 			{
-				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
+				ControllerCameraRight.cullingMask = (1 << 8) | (1 << 10);
 			}
 			else
 			{
-				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 8);
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
 			}
 			pPrimeLeftPlaneRight = p * mT * t;
 		}
@@ -373,7 +373,7 @@ public class OffscreenRendering : MonoBehaviour {
 		right = Vector3.Dot(vr, vb) * (0.3f) / d;
 		bottom = Vector3.Dot(vu, va) * (0.3f) / d;
 		top = Vector3.Dot(vu, vc) * (0.3f) / d;
-		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 1000.0f);
+		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 100000000.0f);
 		mT = new Matrix4x4();
 		mT.SetRow(0, new Vector4(-vr.x, -vr.y, vr.z, 0.0f));
 		mT.SetRow(1, new Vector4(-vu.x, -vu.y, vu.z, 0.0f));
@@ -392,11 +392,11 @@ public class OffscreenRendering : MonoBehaviour {
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
 			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
 			{
-				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 8);
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
 			}
 			else
 			{
-				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
+				ControllerCameraLeft.cullingMask = (1 << 8) | (1 << 10);
 			}
 			pPrimeRightPlaneLeft = p * mT * t;
 		}
@@ -501,7 +501,7 @@ public class OffscreenRendering : MonoBehaviour {
 		right = Vector3.Dot(vr, vb) * (0.3f) / d;
 		bottom = Vector3.Dot(vu, va) * (0.3f) / d;
 		top = Vector3.Dot(vu, vc) * (0.3f) / d;
-		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 1000.0f);
+		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 100000000.0f);
 		mT = new Matrix4x4();
 		mT.SetRow(0, new Vector4(-vr.x, -vr.y, vr.z, 0.0f));
 		mT.SetRow(1, new Vector4(-vu.x, -vu.y, vu.z, 0.0f));
@@ -520,11 +520,11 @@ public class OffscreenRendering : MonoBehaviour {
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
 			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
 			{
-				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
+				ControllerCameraRight.cullingMask = (1 << 8) | (1 << 10);
 			}
 			else
 			{
-				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 8);
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
 			}
 			pPrimeRightPlaneRight = p * mT * t;
 		}
@@ -631,7 +631,7 @@ public class OffscreenRendering : MonoBehaviour {
 		right = Vector3.Dot(vr, vb) * (0.3f) / d;
 		bottom = Vector3.Dot(vu, va) * (0.3f) / d;
 		top = Vector3.Dot(vu, vc) * (0.3f) / d;
-		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 1000.0f);
+		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 100000000.0f);
 		mT = new Matrix4x4();
 		mT.SetRow(0, new Vector4(-vr.x, -vr.y, vr.z, 0.0f));
 		mT.SetRow(1, new Vector4(-vu.x, -vu.y, vu.z, 0.0f));
@@ -650,11 +650,11 @@ public class OffscreenRendering : MonoBehaviour {
 			GameObject.Find("controllerlparent").transform.localPosition = temp;
 			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
 			{
-				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 8);
+				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
 			}
 			else
 			{
-				ControllerCameraLeft.cullingMask = (1 << 7) | (1 << 9);
+				ControllerCameraLeft.cullingMask = (1 << 8) | (1 << 10);
 			}
 			pPrimeBottomPlaneLeft = p * mT * t;
 		}
@@ -759,7 +759,7 @@ public class OffscreenRendering : MonoBehaviour {
 		right = Vector3.Dot(vr, vb) * (0.3f) / d;
 		bottom = Vector3.Dot(vu, va) * (0.3f) / d;
 		top = Vector3.Dot(vu, vc) * (0.3f) / d;
-		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 1000.0f);
+		p = Matrix4x4.Frustum(left, right, bottom, top, 0.3f, 100000000.0f);
 		mT = new Matrix4x4();
 		mT.SetRow(0, new Vector4(-vr.x, -vr.y, vr.z, 0.0f));
 		mT.SetRow(1, new Vector4(-vu.x, -vu.y, vu.z, 0.0f));
@@ -778,11 +778,11 @@ public class OffscreenRendering : MonoBehaviour {
 			GameObject.Find("controllerrparent").transform.localPosition = temp;
 			if (UnityEngine.XR.InputTracking.GetLocalRotation(UnityEngine.XR.XRNode.RightHand).eulerAngles.y < 180.0f)
 			{
-				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
+				ControllerCameraRight.cullingMask = (1 << 8) | (1 << 10);
 			}
 			else
 			{
-				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 8);
+				ControllerCameraRight.cullingMask = (1 << 7) | (1 << 9);
 			}
 			pPrimeBottomPlaneRight = p * mT * t;
 		}
