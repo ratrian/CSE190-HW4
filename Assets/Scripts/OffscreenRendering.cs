@@ -143,7 +143,37 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeLeftPlaneLeft = p * mT * t;
 		}
 
-		if (HeadInHandModeBehaviour.displayPyramids)
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 0))
+		{
+			LeftPlaneLeftTexture.Release();
+		}
+		else
+		{
+			// Set target texture for left camera as active render texture.
+			RenderTexture.active = LeftPlaneLeftTexture;
+			if (HeadInHandModeBehaviour.controllerView)
+			{
+				OffscreenCameraLeft.enabled = false;
+				ControllerCameraLeft.enabled = true;
+
+				ControllerCameraLeft.projectionMatrix = pPrimeLeftPlaneLeft;
+				ControllerCameraLeft.targetTexture = LeftPlaneLeftTexture;
+				// Render to texture
+				ControllerCameraLeft.Render();
+			}
+			else
+			{
+				OffscreenCameraLeft.enabled = true;
+				ControllerCameraLeft.enabled = false;
+
+				OffscreenCameraLeft.projectionMatrix = pPrimeLeftPlaneLeft;
+				OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
+				// Render to texture
+				OffscreenCameraLeft.Render();
+			}
+		}
+
+		if ((HeadInHandModeBehaviour.controllerView) && (HeadInHandModeBehaviour.displayPyramids))
 		{
 			LeftPlaneLeftLine1.enabled = true;
 			LeftPlaneLeftLine1.material.color = Color.green;
@@ -197,36 +227,6 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneLeftLine4.enabled = false;
 		}
 
-		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 0))
-		{
-			LeftPlaneLeftTexture.Release();
-		}
-		else
-		{
-			// Set target texture for left camera as active render texture.
-			RenderTexture.active = LeftPlaneLeftTexture;
-			if (HeadInHandModeBehaviour.controllerView)
-			{
-				OffscreenCameraLeft.enabled = false;
-				ControllerCameraLeft.enabled = true;
-
-				ControllerCameraLeft.projectionMatrix = pPrimeLeftPlaneLeft;
-				ControllerCameraLeft.targetTexture = LeftPlaneLeftTexture;
-				// Render to texture
-				ControllerCameraLeft.Render();
-			}
-			else
-			{
-				OffscreenCameraLeft.enabled = true;
-				ControllerCameraLeft.enabled = false;
-
-				OffscreenCameraLeft.projectionMatrix = pPrimeLeftPlaneLeft;
-				OffscreenCameraLeft.targetTexture = LeftPlaneLeftTexture;
-				// Render to texture
-				OffscreenCameraLeft.Render();
-			}
-		}
-
 		pa = new Vector3(-3.75f, -5.0f, -3.75f);
 		pb = new Vector3(-3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, -3.75f);
@@ -271,7 +271,37 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeLeftPlaneRight = p * mT * t;
 		}
 
-		if (HeadInHandModeBehaviour.displayPyramids)
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 1))
+		{
+			LeftPlaneRightTexture.Release();
+		}
+		else
+		{
+			// Set target texture for right camera as active render texture.
+			RenderTexture.active = LeftPlaneRightTexture;
+			if (HeadInHandModeBehaviour.controllerView)
+			{
+				OffscreenCameraRight.enabled = false;
+				ControllerCameraRight.enabled = true;
+
+				ControllerCameraRight.projectionMatrix = pPrimeLeftPlaneRight;
+				ControllerCameraRight.targetTexture = LeftPlaneRightTexture;
+				// Render to texture
+				ControllerCameraRight.Render();
+			}
+			else
+			{
+				OffscreenCameraRight.enabled = true;
+				ControllerCameraRight.enabled = false;
+
+				OffscreenCameraRight.projectionMatrix = pPrimeLeftPlaneRight;
+				OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
+				// Render to texture
+				OffscreenCameraRight.Render();
+			}
+		}
+
+		if ((HeadInHandModeBehaviour.controllerView) && (HeadInHandModeBehaviour.displayPyramids))
 		{
 			LeftPlaneRightLine1.enabled = true;
 			LeftPlaneRightLine1.material.color = Color.red;
@@ -325,36 +355,6 @@ public class OffscreenRendering : MonoBehaviour {
 			LeftPlaneRightLine4.enabled = false;
 		}
 
-		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 1))
-		{
-			LeftPlaneRightTexture.Release();
-		}
-		else
-		{
-			// Set target texture for right camera as active render texture.
-			RenderTexture.active = LeftPlaneRightTexture;
-			if (HeadInHandModeBehaviour.controllerView)
-			{
-				OffscreenCameraRight.enabled = false;
-				ControllerCameraRight.enabled = true;
-
-				ControllerCameraRight.projectionMatrix = pPrimeLeftPlaneRight;
-				ControllerCameraRight.targetTexture = LeftPlaneRightTexture;
-				// Render to texture
-				ControllerCameraRight.Render();
-			}
-			else
-			{
-				OffscreenCameraRight.enabled = true;
-				ControllerCameraRight.enabled = false;
-
-				OffscreenCameraRight.projectionMatrix = pPrimeLeftPlaneRight;
-				OffscreenCameraRight.targetTexture = LeftPlaneRightTexture;
-				// Render to texture
-				OffscreenCameraRight.Render();
-			}
-		}
-
 		/* Right Plane */
 
 		pa = new Vector3(-3.75f, -5.0f, 3.75f);
@@ -401,7 +401,37 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeRightPlaneLeft = p * mT * t;
 		}
 
-		if (HeadInHandModeBehaviour.displayPyramids)
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 2))
+		{
+			RightPlaneLeftTexture.Release();
+		}
+		else
+		{
+			// Set target texture for left camera as active render texture.
+			RenderTexture.active = RightPlaneLeftTexture;
+			if (HeadInHandModeBehaviour.controllerView)
+			{
+				OffscreenCameraLeft.enabled = false;
+				ControllerCameraLeft.enabled = true;
+
+				ControllerCameraLeft.projectionMatrix = pPrimeRightPlaneLeft;
+				ControllerCameraLeft.targetTexture = RightPlaneLeftTexture;
+				// Render to texture
+				ControllerCameraLeft.Render();
+			}
+			else
+			{
+				OffscreenCameraLeft.enabled = true;
+				ControllerCameraLeft.enabled = false;
+
+				OffscreenCameraLeft.projectionMatrix = pPrimeRightPlaneLeft;
+				OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
+				// Render to texture
+				OffscreenCameraLeft.Render();
+			}
+		}
+
+		if ((HeadInHandModeBehaviour.controllerView) && (HeadInHandModeBehaviour.displayPyramids))
 		{
 			RightPlaneLeftLine1.enabled = true;
 			RightPlaneLeftLine1.material.color = Color.green;
@@ -455,36 +485,6 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneLeftLine4.enabled = false;
 		}
 
-		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 2))
-		{
-			RightPlaneLeftTexture.Release();
-		}
-		else
-		{
-			// Set target texture for left camera as active render texture.
-			RenderTexture.active = RightPlaneLeftTexture;
-			if (HeadInHandModeBehaviour.controllerView)
-			{
-				OffscreenCameraLeft.enabled = false;
-				ControllerCameraLeft.enabled = true;
-
-				ControllerCameraLeft.projectionMatrix = pPrimeRightPlaneLeft;
-				ControllerCameraLeft.targetTexture = RightPlaneLeftTexture;
-				// Render to texture
-				ControllerCameraLeft.Render();
-			}
-			else
-			{
-				OffscreenCameraLeft.enabled = true;
-				ControllerCameraLeft.enabled = false;
-
-				OffscreenCameraLeft.projectionMatrix = pPrimeRightPlaneLeft;
-				OffscreenCameraLeft.targetTexture = RightPlaneLeftTexture;
-				// Render to texture
-				OffscreenCameraLeft.Render();
-			}
-		}
-
 		pa = new Vector3(-3.75f, -5.0f, 3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, 2.5f, 3.75f);
@@ -529,7 +529,37 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeRightPlaneRight = p * mT * t;
 		}
 
-		if (HeadInHandModeBehaviour.displayPyramids)
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 3))
+		{
+			RightPlaneRightTexture.Release();
+		}
+		else
+		{
+			// Set target texture for right camera as active render texture.
+			RenderTexture.active = RightPlaneRightTexture;
+			if (HeadInHandModeBehaviour.controllerView)
+			{
+				OffscreenCameraRight.enabled = false;
+				ControllerCameraRight.enabled = true;
+
+				ControllerCameraRight.projectionMatrix = pPrimeRightPlaneRight;
+				ControllerCameraRight.targetTexture = RightPlaneRightTexture;
+				// Render to texture
+				ControllerCameraRight.Render();
+			}
+			else
+			{
+				OffscreenCameraRight.enabled = true;
+				ControllerCameraRight.enabled = false;
+
+				OffscreenCameraRight.projectionMatrix = pPrimeRightPlaneRight;
+				OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
+				// Render to texture
+				OffscreenCameraRight.Render();
+			}
+		}
+
+		if ((HeadInHandModeBehaviour.controllerView) && (HeadInHandModeBehaviour.displayPyramids))
 		{
 			RightPlaneRightLine1.enabled = true;
 			RightPlaneRightLine1.material.color = Color.red;
@@ -583,36 +613,6 @@ public class OffscreenRendering : MonoBehaviour {
 			RightPlaneRightLine4.enabled = false;
 		}
 
-		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 3))
-		{
-			RightPlaneRightTexture.Release();
-		}
-		else
-		{
-			// Set target texture for right camera as active render texture.
-			RenderTexture.active = RightPlaneRightTexture;
-			if (HeadInHandModeBehaviour.controllerView)
-			{
-				OffscreenCameraRight.enabled = false;
-				ControllerCameraRight.enabled = true;
-
-				ControllerCameraRight.projectionMatrix = pPrimeRightPlaneRight;
-				ControllerCameraRight.targetTexture = RightPlaneRightTexture;
-				// Render to texture
-				ControllerCameraRight.Render();
-			}
-			else
-			{
-				OffscreenCameraRight.enabled = true;
-				ControllerCameraRight.enabled = false;
-
-				OffscreenCameraRight.projectionMatrix = pPrimeRightPlaneRight;
-				OffscreenCameraRight.targetTexture = RightPlaneRightTexture;
-				// Render to texture
-				OffscreenCameraRight.Render();
-			}
-		}
-
 		/* Bottom Plane */
 
 		pa = new Vector3(3.75f, -5.0f, -3.75f);
@@ -659,7 +659,37 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeBottomPlaneLeft = p * mT * t;
 		}
 
-		if (HeadInHandModeBehaviour.displayPyramids)
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 4))
+		{
+			BottomPlaneLeftTexture.Release();
+		}
+		else
+		{
+			// Set target texture for left camera as active render texture.
+			RenderTexture.active = BottomPlaneLeftTexture;
+			if (HeadInHandModeBehaviour.controllerView)
+			{
+				OffscreenCameraLeft.enabled = false;
+				ControllerCameraLeft.enabled = true;
+
+				ControllerCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
+				ControllerCameraLeft.targetTexture = BottomPlaneLeftTexture;
+				// Render to texture
+				ControllerCameraLeft.Render();
+			}
+			else
+			{
+				OffscreenCameraLeft.enabled = true;
+				ControllerCameraLeft.enabled = false;
+
+				OffscreenCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
+				OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
+				// Render to texture
+				OffscreenCameraLeft.Render();
+			}
+		}
+
+		if ((HeadInHandModeBehaviour.controllerView) && (HeadInHandModeBehaviour.displayPyramids))
 		{
 			BottomPlaneLeftLine1.enabled = true;
 			BottomPlaneLeftLine1.material.color = Color.green;
@@ -713,36 +743,6 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneLeftLine4.enabled = false;
 		}
 
-		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 4))
-		{
-			BottomPlaneLeftTexture.Release();
-		}
-		else
-		{
-			// Set target texture for left camera as active render texture.
-			RenderTexture.active = BottomPlaneLeftTexture;
-			if (HeadInHandModeBehaviour.controllerView)
-			{
-				OffscreenCameraLeft.enabled = false;
-				ControllerCameraLeft.enabled = true;
-
-				ControllerCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
-				ControllerCameraLeft.targetTexture = BottomPlaneLeftTexture;
-				// Render to texture
-				ControllerCameraLeft.Render();
-			}
-			else
-			{
-				OffscreenCameraLeft.enabled = true;
-				ControllerCameraLeft.enabled = false;
-
-				OffscreenCameraLeft.projectionMatrix = pPrimeBottomPlaneLeft;
-				OffscreenCameraLeft.targetTexture = BottomPlaneLeftTexture;
-				// Render to texture
-				OffscreenCameraLeft.Render();
-			}
-		}
-
 		pa = new Vector3(3.75f, -5.0f, -3.75f);
 		pb = new Vector3(3.75f, -5.0f, 3.75f);
 		pc = new Vector3(-3.75f, -5.0f, -3.75f);
@@ -787,7 +787,37 @@ public class OffscreenRendering : MonoBehaviour {
 			pPrimeBottomPlaneRight = p * mT * t;
 		}
 
-		if (HeadInHandModeBehaviour.displayPyramids)
+		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 5))
+		{
+			BottomPlaneRightTexture.Release();
+		}
+		else
+		{
+			// Set target texture for right camera as active render texture.
+			RenderTexture.active = BottomPlaneRightTexture;
+			if (HeadInHandModeBehaviour.controllerView)
+			{
+				OffscreenCameraRight.enabled = false;
+				ControllerCameraRight.enabled = true;
+
+				ControllerCameraRight.projectionMatrix = pPrimeBottomPlaneRight;
+				ControllerCameraRight.targetTexture = BottomPlaneRightTexture;
+				// Render to texture
+				ControllerCameraRight.Render();	
+			}
+			else
+			{
+				OffscreenCameraRight.enabled = true;
+				ControllerCameraRight.enabled = false;
+
+				OffscreenCameraRight.projectionMatrix = pPrimeBottomPlaneRight;
+				OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
+				// Render to texture
+				OffscreenCameraRight.Render();
+			}
+		}
+
+		if ((HeadInHandModeBehaviour.controllerView) && (HeadInHandModeBehaviour.displayPyramids))
 		{
 			BottomPlaneRightLine1.enabled = true;
 			BottomPlaneRightLine1.material.color = Color.red;
@@ -839,36 +869,6 @@ public class OffscreenRendering : MonoBehaviour {
 			BottomPlaneRightLine2.enabled = false;
 			BottomPlaneRightLine3.enabled = false;
 			BottomPlaneRightLine4.enabled = false;
-		}
-
-		if ((FreezeModeBehaviour.fail) && (FreezeModeBehaviour.randomChoice == 5))
-		{
-			BottomPlaneRightTexture.Release();
-		}
-		else
-		{
-			// Set target texture for right camera as active render texture.
-			RenderTexture.active = BottomPlaneRightTexture;
-			if (HeadInHandModeBehaviour.controllerView)
-			{
-				OffscreenCameraRight.enabled = false;
-				ControllerCameraRight.enabled = true;
-
-				ControllerCameraRight.projectionMatrix = pPrimeBottomPlaneRight;
-				ControllerCameraRight.targetTexture = BottomPlaneRightTexture;
-				// Render to texture
-				ControllerCameraRight.Render();	
-			}
-			else
-			{
-				OffscreenCameraRight.enabled = true;
-				ControllerCameraRight.enabled = false;
-
-				OffscreenCameraRight.projectionMatrix = pPrimeBottomPlaneRight;
-				OffscreenCameraRight.targetTexture = BottomPlaneRightTexture;
-				// Render to texture
-				OffscreenCameraRight.Render();
-			}
 		}
 
 		// Reset previous render texture.
